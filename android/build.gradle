@@ -2,14 +2,14 @@ group 'net.wolverinebeach.flutter_timezone'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = rootProject.ext.kotlin_version
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.11.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'net.wolverinebeach.flutter_timezone'
-    compileSdkVersion 35
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -41,7 +41,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion rootProject.ext.minSdkVersion
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     lintOptions {
